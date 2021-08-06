@@ -9,7 +9,7 @@ public class SendParcelDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Parcel") return;
+        if (!other.transform.TryGetComponent(out ParcelController parcelController)) return;
 
         ParcelController parcel = other.transform.GetComponent<ParcelController>();
 

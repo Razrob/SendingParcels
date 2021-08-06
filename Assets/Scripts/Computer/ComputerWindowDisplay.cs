@@ -13,7 +13,7 @@ public class ComputerWindowDisplay : MonoBehaviour
 
     void Start()
     {
-        if (!Tips.tip.CallTip("StartTip")) Tips.tip.CallTip("SkipDayTip"); 
+        //if (!TipsSender.Tip.CallTip("StartTip")) TipsSender.Tip.CallTip("SkipDayTip"); 
     }
 
 

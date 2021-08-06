@@ -4,6 +4,7 @@ using System;
 public struct MessageData
 {
     public string senderName;
+    [TextArea()]
     public string content;
     [HideInInspector] public string date;
 

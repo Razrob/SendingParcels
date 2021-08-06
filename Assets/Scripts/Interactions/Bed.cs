@@ -29,7 +29,7 @@ public class Bed : MonoBehaviour, IInteraction
         StartCoroutine(SleepAnimation()); 
     } 
 
-    IEnumerator SleepAnimation()
+    private IEnumerator SleepAnimation()
     {
         choicePanel.choicePanel.SetActive(false);
         choicePanel.acceptButton.onClick.RemoveAllListeners();
@@ -74,7 +74,7 @@ public class Bed : MonoBehaviour, IInteraction
             player.rotation = Quaternion.Euler(player.eulerAngles - (sleepRotation - startRot) / 50);
             yield return new WaitForSeconds(0.01f);
         }
-        Tips.tip.CallTip("FoodTip");
+        //TipsSender.Tip.CallTip("FoodTip");
 
         PlayerStats.ChangeStats(sleepHours * -PlayerStats.decreaseSatietySpeedInHour, sleepHours * -PlayerStats.decreaseWaterSatietySpeedInHour, sleepHours * PlayerStats.decreaseCheerfulnessSpeedInHour * 2); 
          

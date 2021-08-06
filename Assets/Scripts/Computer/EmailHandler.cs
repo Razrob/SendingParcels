@@ -11,18 +11,18 @@ public class EmailHandler : MonoBehaviour
      
     private List<MessageData> messages = new List<MessageData>();
 
-    public static EmailHandler email { get; private set; }
+    public static EmailHandler Email { get; private set; }
 
     private void Awake()
     {
-        if (email == null) email = this;
+        if (Email == null) Email = this;
     }
 
     private void Start()
     {
-        SendMailMessage("Неизвестный", "Сообщение");
-        SendMailMessage("Работодатель", "Ты уволен");
-        SendMailMessage("Работодатель", "Ты принят в компанию по разработке комплексов");
+        //SendMailMessage("Неизвестный", "Сообщение");
+        //SendMailMessage("Работодатель", "Ты уволен");
+        //SendMailMessage("Работодатель", "Ты принят в компанию по разработке комплексов");
     } 
 
     public void SendMailMessage(string senderName, string content)

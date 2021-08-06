@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tips : MonoBehaviour
+public class TipsSender : MonoBehaviour
 {
     [SerializeField] private Tip[] tips;
     [SerializeField] private NotificationDisplay notificationDisplay;
 
-    public static Tips tip { get; private set; }
+    public static TipsSender Tip { get; private set; }
 
     private void Awake()
     {
-        if(tip == null) tip = this;
+        if(Tip == null) Tip = this;
     }  
 
     public bool CallTip(string tipName)

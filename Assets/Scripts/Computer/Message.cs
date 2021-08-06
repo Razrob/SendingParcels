@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Message : MonoBehaviour
 {
@@ -16,11 +17,15 @@ public class Message : MonoBehaviour
 
     public void UpdateUI(bool fullMessage)
     {
-        senderNameText.text = messageData.senderName;
+        senderNameText.text = $"Отправитель: {messageData.senderName}";
         dateText.text = messageData.date;
 
         if(fullMessage) contentText.text = messageData.content;
-        else  contentText.text = messageData.content.Length > 30 ? messageData.content.Substring(0, 30) + "..." : messageData.content; //reduction
+        else
+        {
+            if (messageData.content.Length > 30) contentText.text = messageData.content.Substring(0, 30).Replace("\n", string.Empty) + "...";  
+            else contentText.text = messageData.content;
+        }
     }
 
     public void OnMessageClick()

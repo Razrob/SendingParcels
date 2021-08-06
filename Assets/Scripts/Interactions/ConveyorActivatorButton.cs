@@ -19,7 +19,7 @@ public class ConveyorActivatorButton : MonoBehaviour, IInteraction
     public void Interact()
     {
         StartCoroutine(Press());
-        Tips.tip.CallTip("Work2Tip");
+        TipsSender.Tip.CallTip("Work2Tip");
     }
 
     private IEnumerator Press()

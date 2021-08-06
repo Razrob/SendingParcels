@@ -23,7 +23,7 @@ public class BusinessWindowDisplay : MonoBehaviour
     {
         RefreshDisplays();
 
-        if (!Tips.tip.CallTip("Work0Tip")) Tips.tip.CallTip("Work4Tip");
+      //if (!TipsSender.Tip.CallTip("Work0Tip")) TipsSender.Tip.CallTip("Work4Tip");
     }
 
     private void UpdateMoneyDisplay()
@@ -58,7 +58,7 @@ public class BusinessWindowDisplay : MonoBehaviour
         else
         {
             Cursor.lockState = CursorLockMode.Locked; 
-            Tips.tip.CallTip("Work1Tip");
+           // TipsSender.Tip.CallTip("Work1Tip");
         }
 
         businessWindow.SetActive(isActive);

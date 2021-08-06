@@ -31,7 +31,7 @@ public class ParcelGenerator : MonoBehaviour
     {
         if (BusinessData.parcelsTodayNumber <= 0)
         { 
-            Tips.tip.CallTip("Work3Tip");
+            //TipsSender.Tip.CallTip("Work3Tip");
             return;
         }
 

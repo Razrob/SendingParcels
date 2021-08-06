@@ -574,6 +574,10 @@ MonoBehaviour:
     tipContent: "\u041E\u0442\u043A\u0440\u043E\u0439\u0442\u0435 \u043F\u0440\u0430\u0432\u0438\u043B\u0430
       \u0441\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u043A\u0438 \u043F\u043E\u0441\u044B\u043B\u043E\u043A"
     tipWasShowned: 0
+  - tipName: Start
+    tipContent: "\u041E\u0442\u043A\u0440\u043E\u0439\u0442\u0435 \u043D\u043E\u0443\u0442\u0431\u0443\u043A
+      \u0438 \u043F\u0440\u043E\u0447\u0438\u0442\u0430\u0439\u0442\u0435 \u043F\u0438\u0441\u044C\u043C\u043E"
+    tipWasShowned: 0
   notificationDisplay: {fileID: 1341952855}
 --- !u!114 &1341952857
 MonoBehaviour:
@@ -626,7 +630,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 805485eccb9858b49915bfeb2a6075e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emails: []
+  emailsSendedInSomeDay:
+  - messageData:
+      senderName: "\u041F\u043E\u043C\u043E\u0449\u043D\u0438\u043A"
+      content: "\u041F\u0440\u0438\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044E!\n"
+      date: 
+    sendDay: 1
+  - messageData:
+      senderName: "\u041D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u044B\u0439"
+      content: "\u0414\u043E\u0431\u0440\u043E\u0433\u043E \u0432\u0440\u0435\u043C\u0435\u043D\u0438
+        \u0441\u0443\u0442\u043E\u043A. \n\u0412\u044B \u0443\u043C\u0440\u0435\u0442\u0435
+        \u0447\u0435\u0440\u0435\u0437 4 \u0434\u043D\u044F. \u0418\u0441\u043F\u0440\u0430\u0432\u0438\u0442\u044C
+        \u044D\u0442\u043E \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043B\u0438\u0448\u044C
+        \u043E\u0434\u043D\u0438\u043C \u0441\u043F\u043E\u0441\u043E\u0431\u043E\u043C,
+        \u043E \u043A\u043E\u0442\u043E\u0440\u043E\u043C \u044F \u043F\u043E\u0432\u0435\u0434\u0430\u044E
+        \u043F\u043E\u0437\u0436\u0435."
+      date: 
+    sendDay: 2
 --- !u!1 &1385786557
 GameObject:
   m_ObjectHideFlags: 0
