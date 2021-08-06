@@ -446,9 +446,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1341952852}
-  - component: {fileID: 1341952851}
   - component: {fileID: 1341952853}
   - component: {fileID: 1341952854}
+  - component: {fileID: 1341952860}
   - component: {fileID: 1341952856}
   - component: {fileID: 1341952855}
   - component: {fileID: 1341952857}
@@ -461,18 +461,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1341952851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1341952850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 758899d811114804cbb027f973998b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1341952852
 Transform:
   m_ObjectHideFlags: 0
@@ -626,6 +614,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeSpeed: 90
   autoWorkManager: {fileID: 1341952858}
+--- !u!114 &1341952860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341952850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805485eccb9858b49915bfeb2a6075e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emails: []
 --- !u!1 &1385786557
 GameObject:
   m_ObjectHideFlags: 0

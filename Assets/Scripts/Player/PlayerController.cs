@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{
-    public bool controllWithTouch;
-
+{ 
     [SerializeField] private VariableJoystick joystickRotate;
     [SerializeField] private VariableJoystick joystickMove;  
 
@@ -15,7 +13,7 @@ public class PlayerController : MonoBehaviour
      
     private Camera cam; 
 
-    void Start()
+    private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
@@ -29,7 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!controlIsActive) return;
 
-        if (!controllWithTouch)
+        if (true)
         { 
             float xAxis = Input.GetAxis("Mouse X");
             float yAxis = Input.GetAxis("Mouse Y");

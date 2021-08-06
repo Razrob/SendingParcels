@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public static class PlayerStats
 {
@@ -12,7 +13,7 @@ public static class PlayerStats
     public static float decreaseWaterSatietySpeedInHour { get; } = 8;
     public static float decreaseCheerfulnessSpeedInHour { get; } = 6;
 
-    public static IParamsChange onPlayerStatsChange;
+    public static event Action<int> notifyChanges;
 
     private static int minuteCounter;
 
@@ -28,9 +29,9 @@ public static class PlayerStats
 
     public static void StatsDisplay()
     {
-        onPlayerStatsChange.Refresh(0);
-        onPlayerStatsChange.Refresh(1);
-        onPlayerStatsChange.Refresh(2);
+        notifyChanges?.Invoke(0);
+        notifyChanges?.Invoke(1);
+        notifyChanges?.Invoke(2);
     }
 
     public static void ChangeStats(float _satiety, float _waterSatiety, float _cheerfulness)
@@ -47,9 +48,9 @@ public static class PlayerStats
         if (waterSatiety > 100) waterSatiety = 100;
         if (cheerfulness > 100) cheerfulness = 100;
 
-        if (satiety % 20 <= decreaseSatietySpeedInHour / 12 || _satiety > 0) onPlayerStatsChange.Refresh(0);
-        if (waterSatiety % 20 <= decreaseWaterSatietySpeedInHour / 12 || _waterSatiety > 0) onPlayerStatsChange.Refresh(1);
-        if (cheerfulness % 20 <= decreaseCheerfulnessSpeedInHour / 12 || _cheerfulness > 0) onPlayerStatsChange.Refresh(2); 
+        if (satiety % 20 <= decreaseSatietySpeedInHour / 12 || _satiety > 0) notifyChanges?.Invoke(0);
+        if (waterSatiety % 20 <= decreaseWaterSatietySpeedInHour / 12 || _waterSatiety > 0) notifyChanges?.Invoke(1);
+        if (cheerfulness % 20 <= decreaseCheerfulnessSpeedInHour / 12 || _cheerfulness > 0) notifyChanges?.Invoke(2);
     }
 
 }

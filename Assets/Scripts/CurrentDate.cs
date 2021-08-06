@@ -17,7 +17,8 @@ public static class CurrentDate
     public static int minute = 0;
     public static int seconds = 0;
 
-    public static List<IParamsChange> onParamsChange = new List<IParamsChange>();
+    //public static List<IParamsChange> onParamsChange = new List<IParamsChange>();
+    public static event Action notifyChange;
 
 
     public static void SetDate(int _day, int _month, int _year)
@@ -66,8 +67,8 @@ public static class CurrentDate
         }
 
         BusinessData.parcelsTodayNumber += Random.Range(BusinessData.maxParcelsInDayNumber / 3, BusinessData.maxParcelsInDayNumber);
-         
-        foreach (IParamsChange obj in onParamsChange) obj.Refresh(); 
+        notifyChange?.Invoke();
+        //foreach (IParamsChange obj in onParamsChange) obj.Refresh(); 
 
     }
     public static string GetDate()

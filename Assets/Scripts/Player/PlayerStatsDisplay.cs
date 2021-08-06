@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerStatsDisplay : MonoBehaviour, IParamsChange
+public class PlayerStatsDisplay : MonoBehaviour
 {
     [SerializeField] private Image satietyIndicator;
     [SerializeField] private Image waterSatietyIndicator;
@@ -16,28 +16,14 @@ public class PlayerStatsDisplay : MonoBehaviour, IParamsChange
 
     private void Awake()
     {
-        PlayerStats.onPlayerStatsChange = this; 
-    }
-     
-    public void Refresh(int statIndex)
-    {
-        DisplayIndicators(statIndex);
-    }
+        PlayerStats.notifyChanges += DisplayIndicators;
+    } 
 
     public void DisplayIndicators(int statIndex)
     { 
-        if (statIndex == 0)
-        {
-            satietyIndicatorChange.ChangeColor(GetColorFromStat(PlayerStats.satiety)); 
-        }
-        if (statIndex == 1)
-        {
-            waterSatietyIndicatorChange.ChangeColor(GetColorFromStat(PlayerStats.waterSatiety));
-        }
-        if (statIndex == 2)
-        { 
-            cheerfulnessIndicatorChange.ChangeColor(GetColorFromStat(PlayerStats.cheerfulness));
-        }
+        if (statIndex == 0) satietyIndicatorChange.ChangeColor(GetColorFromStat(PlayerStats.satiety));  
+        if (statIndex == 1)  waterSatietyIndicatorChange.ChangeColor(GetColorFromStat(PlayerStats.waterSatiety)); 
+        if (statIndex == 2)  cheerfulnessIndicatorChange.ChangeColor(GetColorFromStat(PlayerStats.cheerfulness)); 
     }
 
 
@@ -60,14 +46,4 @@ public class PlayerStatsDisplay : MonoBehaviour, IParamsChange
         finalColor -= new Color(0.25f, 0.25f, 0); 
         return finalColor;
     }  
-}
-
-public class CorutineProgressChecker
-{
-    public bool isFinish;
-}
-
-public interface IParamsChange
-{
-    public void Refresh(int statIndex = 0); 
 }

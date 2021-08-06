@@ -35,9 +35,9 @@ public class ParcelController : MonoBehaviour
 
 
 
-    void Start()
+    private void Start()
     {
-        parcelData.GenerateData(parcelSize, HardLevelManager.hardLevel);
+        parcelData.GenerateData(parcelSize, HardLevelChanger.hardLevel);
         UIUpdate();
     }
 
@@ -73,18 +73,5 @@ public class ParcelController : MonoBehaviour
             int index = Random.Range(0, incorrectStumps.Length + 1);
             if (index != incorrectStumps.Length) stump.material = incorrectStumps[index];
         }
-    }
-
-
-    void Update()
-    {
-        
-    }
-}
-
-public enum ParcelSize
-{
-    Большая = 50,
-    Средняя = 20,
-    Малая = 7
+    } 
 }

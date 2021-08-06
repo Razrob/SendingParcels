@@ -15,12 +15,12 @@ public class PlayerInteraction : MonoBehaviour
     private ParcelController activeParcelController;
     private Camera cam;
 
-    private bool controlWithTouch;
+    //private bool controlWithTouch;
 
-    void Start()
+    private void Start()
     { 
         cam = GetComponentInChildren<Camera>();
-        controlWithTouch = GetComponent<PlayerController>().controllWithTouch;
+        //controlWithTouch = GetComponent<PlayerController>().controllWithTouch;
         screenDot = GameObject.Find("ScreenDot").GetComponent<Image>(); 
     }
     private void Update()
@@ -30,8 +30,10 @@ public class PlayerInteraction : MonoBehaviour
         RaycastHit hit;
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject(-1))
         {
-            Ray ray = controlWithTouch ? cam.ScreenPointToRay(Input.mousePosition) : cam.ScreenPointToRay(new Vector2(cam.pixelWidth / 2, cam.pixelHeight / 2));
-            if (Physics.Raycast(ray, out hit, 5) && hit.transform.gameObject.layer == 6)
+            //Ray ray = controlWithTouch ? cam.ScreenPointToRay(Input.mousePosition) : cam.ScreenPointToRay(new Vector2(cam.pixelWidth / 2, cam.pixelHeight / 2));
+            Ray ray = cam.ScreenPointToRay(new Vector2(cam.pixelWidth / 2, cam.pixelHeight / 2));
+
+            if (Physics.Raycast(ray, out hit, 5))
             { 
                 if (hit.transform.tag == "Parcel")
                 {
@@ -45,7 +47,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
                 else
                 {
-                    Interaction interaction = hit.transform.GetComponent<Interaction>();
+                    IInteraction interaction = hit.transform.GetComponent<IInteraction>();
                     if (interaction != null) interaction.Interact();
                 }
 

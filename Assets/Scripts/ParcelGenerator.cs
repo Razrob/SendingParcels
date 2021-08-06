@@ -8,20 +8,19 @@ public class ParcelGenerator : MonoBehaviour
     public bool spawning = true;
     [SerializeField] private float spawnDelay;
 
-    [SerializeField] private BusinessController businessController;
+    [SerializeField] private BusinessWindowDisplay businessController;
 
     [SerializeField] private GameObject[] parcels;
     [SerializeField] private Vector3 parcelSpawnPosition;
 
     
 
-    void Start()
-    {
-
+    private void Start()
+    { 
         StartCoroutine(RepeatParcelGen());
     }
      
-    IEnumerator RepeatParcelGen()
+    private IEnumerator RepeatParcelGen()
     {
         if(spawning) GenerateParcel();
         yield return new WaitForSeconds(spawnDelay);
@@ -32,13 +31,13 @@ public class ParcelGenerator : MonoBehaviour
     {
         if (BusinessData.parcelsTodayNumber <= 0)
         { 
-            TipsManager.Tips.CallTip("Work3Tip");
+            Tips.tip.CallTip("Work3Tip");
             return;
         }
 
         Instantiate(parcels[Random.Range(0, parcels.Length)], parcelSpawnPosition, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
-        BusinessData.parcelsTodayNumber--; 
-        businessController.UpdateParcelsNumberDisplay();
+        BusinessData.parcelsTodayNumber--;
+        businessController.RefreshDisplays();
     }
 
 }

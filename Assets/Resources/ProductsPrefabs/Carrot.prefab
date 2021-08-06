@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f3d48eef71b9a4ab49165aee7f0b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInteractable: 1
+  productName: Carrot
   satietyIncrease: 10
   waterSatietyIncrease: 5
   cheerfulnessIncrease: 0

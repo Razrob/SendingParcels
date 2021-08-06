@@ -13,11 +13,17 @@ public class NotificationDisplay : MonoBehaviour
     private bool notIsActive;
     private Queue<string> notQueue = new Queue<string>();
 
-    void Awake()
+    private void Awake()
     { 
         notificationImage = notificationPanel.GetComponent<Image>();
         notificationText = notificationPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-    } 
+    }
+
+
+    private void TryDisplayNot()
+    {
+        if (!notIsActive && notQueue.Count > 0) StartCoroutine(DisplayNotificationCorutine(notQueue.Dequeue()));
+    }
 
     public void DisplayNotification(string text)
     {
@@ -26,12 +32,7 @@ public class NotificationDisplay : MonoBehaviour
 
     }
 
-    private void TryDisplayNot()
-    {
-        if (!notIsActive && notQueue.Count > 0) StartCoroutine(DisplayNotificationCorutine(notQueue.Dequeue()));
-    }
-
-    IEnumerator DisplayNotificationCorutine(string text)
+    private IEnumerator DisplayNotificationCorutine(string text)
     {
         notIsActive = true;
         notificationPanel.SetActive(true);
@@ -68,7 +69,7 @@ public class NotificationDisplay : MonoBehaviour
     }
 
 
-    IEnumerator SmoothAlfaChange(Image image, float finalAlfa, CorutineProgressChecker checker)
+    private IEnumerator SmoothAlfaChange(Image image, float finalAlfa, CorutineProgressChecker checker)
     {
 
         float startAlfa = image.color.a;

@@ -5,11 +5,11 @@ using UnityEngine;
 public class TimeFlowSimulation : MonoBehaviour
 {
     [SerializeField] private float timeSpeed = 1;
-    [SerializeField] private AutoWorkManager autoWorkManager;
+    [SerializeField] private AutoEarnings autoWorkManager;
 
     private float min; 
 
-    void Update()
+    private void Update()
     {
         min += Time.deltaTime * timeSpeed / 60;
 
